@@ -1,5 +1,6 @@
 
 #apt update -y
+need to create an user 
 #adduser todoapp
 #su - todoapp
 $git clone https://github.com/zelar-soft-todoapp/users.git
@@ -7,23 +8,23 @@ $git clone https://github.com/zelar-soft-todoapp/users.git
 $sudo apt install openjdk-8-jdk
 $sudo apt install maven
 $sudo mvn package
+after this jar files will be created in target folder
 
+so , this path has to give in service file 
 #vi user.service
 
 [Unit]
 Description=user Service
-
 [Service]
 User=todoapp
-
 Environment=SERVER_PORT=8080
 Environment=JWT_SECRET=foo
 ExecStart=/bin/java -jar /home/todoapp/user.jar
 SyslogIdentifier=user
-
 [Install]
 WantedBy=multi-user.target
 
+after this need to start the user service 
 #sytemctl daemon-reload
 #systemctl restart user
 #systemctl status user
