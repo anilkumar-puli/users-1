@@ -30,7 +30,6 @@ SyslogIdentifier=user
 [Install]
 WantedBy=multi-user.target
 ```
-
 after this need to start the user service 
 ```
 #sytemctl daemon-reload
